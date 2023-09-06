@@ -16,8 +16,8 @@ public class FirstJasperReportApplication {
 	public static void main(String[] args) throws JRException {
 
 		SpringApplication.run(FirstJasperReportApplication.class, args);
-		String filePath="C:\\Users\\LATITUDE 3450\\Desktop\\MyCodeProjects\\JAVA\\First-Jasper-Report\\src\\main\\resources\\templates\\FirstReport.jrxml";
-
+		String filePath="src\\main\\resources\\templates\\FirstReport.jrxml";
+//C:\Users\LATITUDE 3450\Desktop\MyCodeProjects\JAVA\First-Jasper-Report\
 		Employee employee1 = new Employee("John Smith", "Software Engineer", 75000);
 		Employee employee2 = new Employee("Alice Johnson", "Data Analyst", 60000);
 		Employee employee3 = new Employee("Michael Brown", "Project Manager", 90000);
@@ -31,7 +31,7 @@ public class FirstJasperReportApplication {
 		Employee employee11 = new Employee("Adam DeMamp", "Sales Representative", 28000);
 		Employee employee12 = new Employee("Blake Henderson", "Sales Representative", 30000);
 		Employee employee13 = new Employee("Anders Holmvik", "Sales Representative", 32000);
-
+		Employee employee14 = new Employee("Andrew Landry", "Jr Developer", 52000);
 		List<Employee> employeeList = new ArrayList<>();
 		employeeList.add(employee1);
 		employeeList.add(employee2);
@@ -46,6 +46,7 @@ public class FirstJasperReportApplication {
 		employeeList.add(employee11);
 		employeeList.add(employee12);
 		employeeList.add(employee13);
+		employeeList.add(employee14);
 
 		JRBeanCollectionDataSource employeeDataSource = new JRBeanCollectionDataSource(employeeList);
 
@@ -56,7 +57,7 @@ public class FirstJasperReportApplication {
 
 		JasperReport report = JasperCompileManager.compileReport(filePath);
 		JasperPrint print = JasperFillManager.fillReport(report,parameters, new JREmptyDataSource());
-		JasperExportManager.exportReportToPdfFile(print, "C:\\Users\\LATITUDE 3450\\Desktop\\MyCodeProjects\\JAVA\\First-Jasper-Report\\src\\main\\resources\\static\\FirstReport.pdf");
+		JasperExportManager.exportReportToPdfFile(print, "src\\main\\resources\\static\\FirstReport.pdf");
 		System.out.println("Report generated, Great success!");
 		System.out.println(employeeList);
 
